@@ -1,18 +1,17 @@
-'use client';
+"use client";
 
 import React from "react";
 
-
 interface SelectReorderProps {
- setSortBy: (value: string) => void;
- sortBy: string;
+  setSortBy: (value: string) => void;
+  sortBy: string;
 }
 
 const SelectReorder: React.FC<SelectReorderProps> = ({ setSortBy, sortBy }) => {
   return (
     <>
       <select
-        className="border rounded-lg bg-gray-200 p-2"
+        className="border rounded-lg bg-gray-200 p-1 shadow-sm"
         value={sortBy}
         onChange={(e) => setSortBy(e.target.value)}
       >

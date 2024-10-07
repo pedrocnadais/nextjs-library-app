@@ -1,59 +1,28 @@
 import Image from "next/image";
 import React from "react";
+import { BookType } from "@/types/book";
 
-interface BookProps {
-  id: number;
-  img: string;
-  title: string;
-  author: string;
-  audio: string;
-  written: string;
+interface BookTypeProps {
+  bookType: BookType;
+  onClick: () => void;
 }
 
-const Book: React.FC<BookProps> = ({ img, title, author, audio, written }) => {
-  const openLink = (link: string) => {
-    if (link !== "") {
-      window.open(link, "_blank");
-    } else {
-      alert("Sorry, not available");
-    }
-  };
-
+const Book: React.FC<BookTypeProps> = ({ bookType, onClick }) => {
   return (
-    <article className="p-6 bg-white rounded-lg border shadow-lg">
+    <div className="flex flex-col text-center items-center p-3 w-[220px] h-[450px] bg-white rounded-lg border shadow-lg cursor-pointer" onClick={onClick}>
       {/* Favorite functionality can be added later */}
       <Image
-        src={img}
-        alt={title}
+        src={bookType.img}
+        alt={bookType.title}
         height={200}
         width={200}
-        className="w-full h-auto object-cover my-4 cursor-pointer"
-        onClick={() => openLink(written)}
+        className="object-contain"
       />
-      <h1
-        className="text-xl font-bold cursor-pointer hover:underline"
-        onClick={() => openLink(written)}
-      >
-        {title}
-      </h1>
-      <h4 className="text-gray-500">{author}</h4>
-      <div className="mt-4 space-x-2">
-        <button
-          type="button"
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg"
-          onClick={() => openLink(audio)}
-        >
-          Audio Version
-        </button>
-        <button
-          type="button"
-          className="px-4 py-2 bg-green-500 text-white rounded-lg"
-          onClick={() => openLink(written)}
-        >
-          Written Version
-        </button>
+      <h1 className="text-xl mt-2 font-bold cursor-pointer" onClick={onClick}>{bookType.title}</h1>
+      <h4 className="text-gray-500 mt-2">{bookType.author}</h4>
+      <div className="mt-4 flex flex-col items-center">
       </div>
-    </article>
+    </div>
   );
 };
 

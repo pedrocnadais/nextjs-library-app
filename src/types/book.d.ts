@@ -4,8 +4,8 @@ export interface BookType {
  img: string;
  title: string;
  author: string;
- audible: string;
- physicalVersion: string;
+ audio: string;
+ written: string;
  favorite: boolean;
  toggleFavorite: (title: string) => void;
 }
