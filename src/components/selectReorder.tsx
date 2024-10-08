@@ -21,8 +21,14 @@ const SelectReorder: React.FC<SelectReorderProps> = ({ setSortBy, sortBy }) => {
         <option key="author" value="author">
           Author (a-z)
         </option>
+        <option key="inverted-author" value="inverted-author">
+          Author (z-a)
+        </option>
         <option key="title" value="title">
           Title (a-z)
+        </option>
+        <option key="inverted-title" value="inverted-title">
+          Title (z-a)
         </option>
       </select>
     </>

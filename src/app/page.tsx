@@ -8,6 +8,7 @@ import SelectReorder from "@/components/selectReorder";
 import { BookType } from "@/types/book";
 import BookModal from "@/components/modal/BookModal";
 import { Toaster } from "react-hot-toast";
+import { BookProvider } from "@/context/BookContext";
 
 const BookList: React.FC = () => {
   const [books, setBooks] = useState<BookType[]>([]);
@@ -74,7 +75,6 @@ const BookList: React.FC = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setCurrentIndex(0);
   };
 
   const sortedBooks = [...books];
@@ -82,51 +82,53 @@ const BookList: React.FC = () => {
     sortedBooks.sort((a, b) => a.author.localeCompare(b.author));
   } else if (sortBy === "title") {
     sortedBooks.sort((a, b) => a.title.localeCompare(b.title));
+  } else if (sortBy === "inverted-author") {
+    sortedBooks.sort((a, b) => b.author.localeCompare(a.author));
+  } else if (sortBy === "inverted-title") {
+    sortedBooks.sort((a, b) => b.title.localeCompare(a.author));
   }
 
   return (
-    <section className="p-6">
-      <div className="text-center hover:text-gray-500 mb-6">
-        <h1 className="text-4xl font-bold">Online Public Library</h1>
-      </div>
-      <Toaster position="bottom-center" reverseOrder={false} />
-
-      <section>
-        {/* <Sidebar /> */}
-
-        <div id="book-suggestions" className="mb-6">
-          <NewBooks />
+    <BookProvider books={sortedBooks} closeModal={closeModal} isOpen={isModalOpen}>
+      <section className="p-6">
+        <div className="text-center hover:text-gray-500 mb-6">
+          <h1 className="text-4xl font-bold">Online Public Library</h1>
         </div>
+        <Toaster position="bottom-center" reverseOrder={false} />
 
-        <div className="mb-4">
-          <SelectReorder sortBy={sortBy} setSortBy={setSortBy} />
-        </div>
+        <section>
+          {/* <Sidebar /> */}
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-          {sortedBooks.map((book, index) => (
-            <div
-              key={book.id}
-              ref={sortedBooks.length === index + 1 ? lastBookElementRef : null} // Attach observer to last book
-            >
-              <Book bookType={book} onClick={() => handleBookClick(index)} />
-            </div>
-          ))}
-        </div>
-        {loading && (
-          <div className="text-center mt-4">Loading more books...</div>
+          <div id="book-suggestions" className="mb-6">
+            <NewBooks />
+          </div>
+
+          <div className="mb-4">
+            <SelectReorder sortBy={sortBy} setSortBy={setSortBy} />
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            {sortedBooks.map((book, index) => (
+              <div
+                key={book.id}
+                ref={
+                  sortedBooks.length === index + 1 ? lastBookElementRef : null
+                } // Attach observer to last book
+              >
+                <Book bookType={book} onClick={() => handleBookClick(index)} />
+              </div>
+            ))}
+          </div>
+          {loading && (
+            <div className="text-center mt-4">Loading more books...</div>
+          )}
+        </section>
+
+        {currentindex !== null && (
+          <BookModal />
         )}
       </section>
-
-      {currentindex !== null && (
-        <BookModal
-          isOpen={isModalOpen}
-          closeModal={closeModal}
-          currentIndex={currentindex}
-          books={sortedBooks}
-          setCurrentIndex={setCurrentIndex}
-        />
-      )}
-    </section>
+    </BookProvider>
   );
 };
 
