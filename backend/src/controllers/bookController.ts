@@ -21,14 +21,46 @@ export const getAllBooks = async (req: Request, res: Response) => {
   }
 };
 
-// Add a new book
+// Add a new suggestion
 export const addSuggestion = async (req: Request, res: Response) => {
   try {
     const { title, author } = req.body;
-    const newSuggestion = await BookSuggestion.create({ title, author }); // Use BookSuggestion model
+    const newSuggestion = await BookSuggestion.create({ title, author, processed: false }); // Use BookSuggestion model
+
     res.json(newSuggestion);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Error adding book suggestion' });
   }
 };
+
+// Fetch unprocessed book suggestions
+export const getUnprocessedSuggestions = async (): Promise<BookSuggestion[]> => {
+  try {
+    const suggestions = await BookSuggestion.findAll({
+      where: { processed: false },
+    });
+    return suggestions
+  } catch (error) {
+    console.error('Error fetching suggestions:', error);
+    return [];
+  }
+};
+
+const capitalize = (text: string) => {
+  return text.replace(/\b\w/g, (char) => char.toUpperCase());
+};
+// Insert the new book into books_list table
+export const insertBookIntoList = async (bookData: { title: string, author: string, img: string, written: string, audio: string }) => {
+  try {
+    const formattedBookData = {
+      ...bookData,
+      title: capitalize(bookData.title),
+      author: capitalize(bookData.author),
+    }
+    await Book.create(formattedBookData);
+  } catch (error) {
+    console.error('Error inserting book:', error);
+    return [];
+  }
+}

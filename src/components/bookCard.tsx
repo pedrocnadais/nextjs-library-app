@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { BookType } from "@/types/book";
+import ImageNotAvailable from '@/app/ImageNotAvailable.png'
 
 interface BookTypeProps {
   bookType: BookType;
@@ -8,11 +9,13 @@ interface BookTypeProps {
 }
 
 const Book: React.FC<BookTypeProps> = ({ bookType, onClick }) => {
+  const imageUrl = bookType.img === "not available" ? ImageNotAvailable : bookType.img;
+
   return (
     <div className="flex flex-col text-center items-center p-3 w-[220px] h-[450px] bg-white rounded-lg border shadow-lg cursor-pointer" onClick={onClick}>
       {/* Favorite functionality can be added later */}
       <Image
-        src={bookType.img}
+        src={imageUrl}
         alt={bookType.title}
         height={200}
         width={200}

@@ -6,7 +6,5 @@ export interface BookType {
  author: string;
  audio: string;
  written: string;
- favorite: boolean;
- toggleFavorite: (title: string) => void;
 }
    

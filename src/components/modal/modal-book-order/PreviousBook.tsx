@@ -2,10 +2,14 @@
 import React from "react";
 import { useBookContext } from "@/context/BookContext";
 import Image from "next/image";
+import ImageNotAvailable from '@/app/ImageNotAvailable.png'
+
 
 const PreviousBook: React.FC = () => {
   const { previousBook, handlePrevious, slideDirection, isSliding } =
     useBookContext();
+  const imageUrl = previousBook.img === "not available" ? ImageNotAvailable : previousBook.img;
+
 
   if (!previousBook) {
     return null; // or you can return a placeholder if previousBook is not available
@@ -22,7 +26,7 @@ const PreviousBook: React.FC = () => {
     >
       <div className="opacity-50 cursor-pointer" onClick={handlePrevious}>
         <Image
-          src={previousBook.img}
+          src={imageUrl}
           alt={previousBook.title}
           height={200}
           width={200}

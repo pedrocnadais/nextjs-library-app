@@ -2,7 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import apiRoutes from './routes/api';
-import { sequelize } from './config/sequelize-config'; // Import Sequelize instance
+import { sequelize } from './config/sequelize-config';
+// import { processBookSuggestions } from './scripts/processBooks';
 
 dotenv.config();
 

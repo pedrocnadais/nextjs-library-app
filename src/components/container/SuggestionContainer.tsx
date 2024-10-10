@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import NewBooks from "../newBooks";
 
 const SuggestionContainer = () => {
   return (
-    <div>SuggestionContainer</div>
-  )
-}
+    <div id="book-suggestions" className="mb-6">
+      <NewBooks />
+    </div>
+  );
+};
 
-export default SuggestionContainer
+export default SuggestionContainer;

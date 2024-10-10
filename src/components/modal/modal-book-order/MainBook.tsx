@@ -2,10 +2,12 @@ import { useBookContext } from "@/context/BookContext";
 import Image from "next/image";
 import React from "react";
 import { IoCloseOutline } from "react-icons/io5";
+import ImageNotAvailable from '@/app/ImageNotAvailable.png'
 
 const MainBook = () => {
-  const { slideDirection, currentBook, handleClose, isClosing, openLink } =
-    useBookContext();
+ const { slideDirection, currentBook, handleClose, isClosing, openLink } =
+ useBookContext();
+ const imageUrl = currentBook.img === "not available" ? ImageNotAvailable : currentBook.img;
 
   if (!currentBook) {
     return null; // or you can return a placeholder if previousBook is not available
@@ -28,7 +30,7 @@ const MainBook = () => {
           </button>
 
           <Image
-            src={currentBook.img}
+            src={imageUrl}
             alt={currentBook.title}
             height={200}
             width={200}
@@ -47,7 +49,7 @@ const MainBook = () => {
         <div className="mt-4 mb-10 flex flex-row gap-5 justify-center items-center">
           <button
             type="button"
-            className="px-2 bg-blue-500 text-white rounded-lg hover:bg-blue-950 hover:animate-bounce"
+            className="px-2 bg-blue-500 text-white rounded-lg hover:bg-blue-950"
             onClick={() => openLink(currentBook.audio)}
           >
             Audio Version
@@ -55,7 +57,7 @@ const MainBook = () => {
 
           <button
             type="button"
-            className="px-2 bg-green-500 text-white rounded-lg"
+            className="px-2 bg-green-500 text-white rounded-lg hover:bg-green-950"
             onClick={() => openLink(currentBook.written)}
           >
             Written Version

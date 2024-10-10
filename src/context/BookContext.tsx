@@ -16,17 +16,19 @@ interface BookContextProps {
   handleClose: () => void;
   handleNext: () => void;
   handlePrevious: () => void;
+  setCurrentIndex: (index: number) => void;
+  openModal: () => void;
+  closeModal: () => void;
 }
 
 const BookContext = createContext<BookContextProps | undefined>(undefined);
 
 export const BookProvider: React.FC<{
   books: BookType[];
-  closeModal: () => void;
-  isOpen: boolean;
   children: React.ReactNode;
-}> = ({ books, closeModal, isOpen, children }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+}> = ({ books, children }) => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isSliding, setIsSliding] = useState(false);
   const [slideDirection, setSlideDirection] = useState<"left" | "right" | "">("");
   const [isClosing, setIsClosing] = useState(false);
@@ -35,7 +37,7 @@ export const BookProvider: React.FC<{
     setIsClosing(true);
     setTimeout(() => {
       setIsClosing(false);
-      closeModal();
+      setIsModalOpen(false);
     }, 200);
   };
 
@@ -75,7 +77,15 @@ export const BookProvider: React.FC<{
     }
   };
 
-  const currentBook = books[currentIndex];
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const currentBook = books[currentIndex] || {};
   const previousBook =
     books[currentIndex === 0 ? books.length - 1 : currentIndex - 1];
   const nextBook =
@@ -83,21 +93,24 @@ export const BookProvider: React.FC<{
 
   return (
     <BookContext.Provider
-    value={{
-     books,
-     currentIndex,
-     currentBook,
-     previousBook,
-     nextBook,
-     isSliding,
-     slideDirection,
-     handleNext,
-     handlePrevious,
-     handleClose,
-     openLink,
-     isClosing,
-     isOpen,
-   }}
+      value={{
+        books,
+        currentIndex,
+        setCurrentIndex,
+        currentBook,
+        previousBook,
+        nextBook,
+        isSliding,
+        slideDirection,
+        handleNext,
+        handleClose,
+        handlePrevious,
+        openLink,
+        isClosing,
+        isOpen: isModalOpen,
+        openModal,
+        closeModal,
+      }}
     >
       {children}
     </BookContext.Provider>

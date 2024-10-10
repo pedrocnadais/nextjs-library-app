@@ -9,6 +9,9 @@ const nextConfig = {
    {
     protocol: "https",
     hostname: "media3.audimo.com",
+   },
+   {
+    hostname: "serpapi.com"
    }
   ]
  }
