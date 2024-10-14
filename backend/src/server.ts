@@ -8,7 +8,7 @@ import { sequelize } from './config/sequelize-config';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.RENDER_PORT || 10000;
 
 app.use(express.json());
 app.use(cors());
