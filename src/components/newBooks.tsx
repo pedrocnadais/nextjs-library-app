@@ -1,3 +1,4 @@
+'use client';
 
 import { useState } from "react";
 import { client } from "@/utils/axios.config";
@@ -32,7 +33,7 @@ const NewBooks: React.FC = () => {
 
   return (
     <>
-      <h2 className="text-2xl font-bold mb-4">Book Suggestions</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center ">Book Suggestions</h2>
       <article>
         <form className="space-y-4 bg-gray-100 p-4 rounded-lg shadow-md" onSubmit={handleSubmit}>
           <div className="form-control">

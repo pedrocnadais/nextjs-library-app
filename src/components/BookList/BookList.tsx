@@ -8,7 +8,7 @@ import { BookType } from "@/types/book";
 import BookModal from "@/components/modal/BookModal";
 import { Toaster } from "react-hot-toast";
 import { BookProvider, useBookContext } from "@/context/BookContext";
-import SuggestionContainer from "@/components/container/SuggestionContainer";
+import Spinner from "../spinner/spinner";
 
 // Define BookList component to be wrapped by the BookProvider
 const BookListContent: React.FC<{
@@ -41,14 +41,9 @@ const BookListContent: React.FC<{
 
   return (
     <section className="p-6">
-      <div className="text-center hover:text-gray-500 mb-6">
-        <h1 className="text-4xl font-bold">Online Public Library</h1>
-      </div>
       <Toaster position="bottom-center" reverseOrder={false} />
 
       <section>
-        <SuggestionContainer />
-
         <div className="mb-4">
           <SelectReorder sortBy={sortBy} setSortBy={setSortBy} />
         </div>
@@ -66,7 +61,7 @@ const BookListContent: React.FC<{
           ))}
         </div>
         {loading && (
-          <div className="text-center mt-4">Loading more books...</div>
+          <div className="text-center mt-7"><Spinner /></div>
         )}
       </section>
 

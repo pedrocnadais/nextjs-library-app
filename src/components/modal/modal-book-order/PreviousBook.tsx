@@ -17,7 +17,7 @@ const PreviousBook: React.FC = () => {
 
   return (
     <div
-      className={`bg-[#96969787] flex flex-col rounded-lg w-[240px] h-[300px] transition-transform duration-200 ${
+      className={`bg-[#96969787] flex flex-col rounded-lg w-[240px] h-auto transition-transform duration-200 ${
         slideDirection === "left" ? "translate-x-full" 
         : slideDirection === "right"
         ? "-translate-x-full"
@@ -30,10 +30,10 @@ const PreviousBook: React.FC = () => {
           alt={previousBook.title}
           height={200}
           width={200}
-          className="w-44 h-44 mt-5 object-cover mx-auto"
+          className="mt-5 object-cover mx-auto"
         />
         <h1 className="text-center text-gray-800 mt-2">{previousBook.title}</h1>
-        <h4 className="text-center text-gray-700">{previousBook.author}</h4>
+        <h4 className="text-center text-gray-700 mt-2 mb-4">{previousBook.author}</h4>
       </div>
     </div>
   );

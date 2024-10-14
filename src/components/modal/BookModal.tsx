@@ -11,10 +11,10 @@ const BookModal = ({  }) => {
   if (!isOpen && !isClosing) return null;
 
   return (
-    <div className="fixed inset-0 bg-gray-400 bg-opacity-95 flex flex-row gap-24 items-center justify-center">
+    <div className="fixed inset-0 bg-gray-400 bg-opacity-95 flex flex-row gap-3 items-center justify-center sm:gap-24">
 
       {/* previous books */}
-      <button onClick={handlePrevious} className="absolute mr-[90%] z-50">
+      <button onClick={handlePrevious} className="absolute mr-[90%] z-50 hover:opacity-45">
         <FaAnglesLeft size={80} />
       </button>
       <PreviousBook />
@@ -23,7 +23,7 @@ const BookModal = ({  }) => {
       <MainBook />
 
       {/* next book */}
-      <button onClick={handleNext} className="absolute ml-[90%] z-50">
+      <button onClick={handleNext} className="absolute ml-[90%] z-50 hover:opacity-45">
         <FaAnglesRight size={80} />
       </button>
       <NextBook />

@@ -1,23 +1,23 @@
-import axios from "axios";
-import { load as cheerioLoad } from "cheerio";
+// import axios from "axios";
+// import { load as cheerioLoad } from "cheerio";
 import { getJson } from "serpapi";
 
-async function scrapeAmazonImage(amazonLink: string) {
-  try {
-    const response = await axios.get(amazonLink);
-    const $ = cheerioLoad(response.data);
+// async function scrapeAmazonImage(amazonLink: string) {
+//   try {
+//     const response = await axios.get(amazonLink);
+//     const $ = cheerioLoad(response.data);
 
-    const imageUrl =
-      $("#imgBlkFront").attr("src") ||
-      $("#landingImage").attr("src") ||
-      $("[data-a-dynamic-image]").attr("src");
+//     const imageUrl =
+//       $("#imgBlkFront").attr("src") ||
+//       $("#landingImage").attr("src") ||
+//       $("[data-a-dynamic-image]").attr("src");
 
-    return imageUrl || "not available";
-  } catch (error) {
-    console.error("Error scraping image:", error);
-    return "not available";
-  }
-}
+//     return imageUrl || "not available";
+//   } catch (error) {
+//     console.error("Error scraping image:", error);
+//     return "not available";
+//   }
+// }
 
 export async function scrapeBookData(title: string, author: string) {
   const params = {
@@ -41,12 +41,12 @@ export async function scrapeBookData(title: string, author: string) {
         result?.link?.includes("amazon.com")
       )?.link || "not available";
 
-    const amazonImage =
-      amazon_link !== "not available"
-        ? await scrapeAmazonImage(amazon_link)
-        : "not available";
+    // const amazonImage =
+    //   amazon_link !== "not available"
+    //     ? await scrapeAmazonImage(amazon_link)
+    //     : "not available";
 
-    const fallbackImage =
+    const image =
       response?.shopping_results?.[0]?.thumbnail || // Shopping results thumbnail
       response?.shopping_results?.[0]?.images?.[0] || // Shopping results images
       response?.organic_results?.[0]?.thumbnail || // Organic results thumbnail
@@ -55,7 +55,7 @@ export async function scrapeBookData(title: string, author: string) {
       response?.images_results?.[0]?.original || // General image results original
       "not available"; // Fallback
 
-    const image = amazonImage !== "not available" ? amazonImage : fallbackImage;
+    // const image = amazonImage !== "not available" ? amazonImage : fallbackImage;
 
     const audible_link =
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

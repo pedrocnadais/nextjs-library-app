@@ -3,7 +3,7 @@ import NewBooks from "../newBooks";
 
 const SuggestionContainer = () => {
   return (
-    <div id="book-suggestions" className="mb-6">
+    <div id="book-suggestions" className="mx-auto mb-6 w-[40%]">
       <NewBooks />
     </div>
   );

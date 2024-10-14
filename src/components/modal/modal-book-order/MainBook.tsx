@@ -16,7 +16,7 @@ const MainBook = () => {
   return (
     <div className=" flex flex-col items-center overflow-y-auto">
       <div
-        className={`relative bg-[#d4d5d6] rounded-lg shadow-lg px-[6px] w-[330px] h-auto transition-transform duration-200 ${
+        className={`relative bg-[#d4d5d6] rounded-lg shadow-lg px-[6px] w-[300px] h-auto transition-transform duration-200 ${
           slideDirection === "right"
             ? "-translate-x-full"
             : slideDirection === "left"
@@ -34,25 +34,25 @@ const MainBook = () => {
             alt={currentBook.title}
             height={200}
             width={200}
-            className="w-56 h-56 object-cover mt-4 mx-auto cursor-pointer"
+            className="object-cover mt-4 mx-auto cursor-pointer"
             priority
             onClick={() => openLink(currentBook.written)}
           />
         </div>
 
-        <h1 className="text-xl font-bold text-center mt-3 cursor-pointer hover:underline">
+        <h1 className="text-xl font-bold text-center mt-3 cursor-pointer">
           {currentBook.title}
         </h1>
 
-        <h4 className="text-gray-800 text-center">{currentBook.author}</h4>
+        <h4 className="text-gray-600 text-center">{currentBook.author}</h4>
 
-        <div className="mt-4 mb-10 flex flex-row gap-5 justify-center items-center">
+        <div className="mt-4 mb-5 flex flex-row gap-2 sm:gap-5 justify-center items-center">
           <button
             type="button"
             className="px-2 bg-blue-500 text-white rounded-lg hover:bg-blue-950"
             onClick={() => openLink(currentBook.audio)}
           >
-            Audio Version
+            Audio
           </button>
 
           <button
@@ -60,7 +60,7 @@ const MainBook = () => {
             className="px-2 bg-green-500 text-white rounded-lg hover:bg-green-950"
             onClick={() => openLink(currentBook.written)}
           >
-            Written Version
+            Written
           </button>
         </div>
       </div>
