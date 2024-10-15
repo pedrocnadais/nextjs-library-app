@@ -38,7 +38,8 @@ const BookListContent: React.FC<{
   } else if (sortBy === "inverted-title") {
     sortedBooks.sort((a, b) => b.title.localeCompare(a.author));
   }
-
+  
+  console.log('Books data:', sortedBooks);
   return (
     <section className="p-6">
       <Toaster position="bottom-center" reverseOrder={false} />
@@ -99,13 +100,17 @@ const BookList: React.FC = () => {
         console.error("Error fetching books:", error);
         setLoading(false);
       }
+      console.log(books)
     },
     [books]
   );
 
   useEffect(() => {
+    console.log('component mounted', fetchBooks)
     fetchBooks(page); // Fetch the first set of books
   }, [fetchBooks, page]);
+
+  console.log(fetchBooks)
 
   // Infinite scroll logic using IntersectionObserver
   const observer = useRef<IntersectionObserver | null>(null);
