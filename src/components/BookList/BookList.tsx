@@ -84,7 +84,6 @@ const BookList: React.FC = () => {
       setLoading(true);
       try {
         const response = await client.get(`/api/books?limit=15&page=${pageNumber}`);
-        console.log(response)
         const newBooks = response.data;
         if (newBooks.length === 0) {
           setHasMore(false); // No more books to load
@@ -105,11 +104,8 @@ const BookList: React.FC = () => {
   );
 
   useEffect(() => {
-    console.log('component mounted', fetchBooks)
     fetchBooks(page); // Fetch the first set of books
   }, [fetchBooks, page]);
-
-  console.log(fetchBooks)
 
   // Infinite scroll logic using IntersectionObserver
   const observer = useRef<IntersectionObserver | null>(null);
