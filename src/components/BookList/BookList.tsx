@@ -38,8 +38,7 @@ const BookListContent: React.FC<{
   } else if (sortBy === "inverted-title") {
     sortedBooks.sort((a, b) => b.title.localeCompare(a.author));
   }
-  
-  console.log('Books data:', sortedBooks);
+
   return (
     <section className="p-6">
       <Toaster position="bottom-center" reverseOrder={false} />
@@ -85,6 +84,7 @@ const BookList: React.FC = () => {
       setLoading(true);
       try {
         const response = await client.get(`/api/books?limit=15&page=${pageNumber}`);
+        console.log(response)
         const newBooks = response.data;
         if (newBooks.length === 0) {
           setHasMore(false); // No more books to load
@@ -100,7 +100,6 @@ const BookList: React.FC = () => {
         console.error("Error fetching books:", error);
         setLoading(false);
       }
-      console.log(books)
     },
     [books]
   );

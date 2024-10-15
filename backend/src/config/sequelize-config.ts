@@ -22,11 +22,13 @@ export const sequelize = new Sequelize(dbUrl as string, {
 //   host: process.env.DB_HOST,
 //   port: Number(process.env.DB_PORT),
 //   dialect: 'postgres',
-//   dialectOptions: {
-//     ssl: {
-//       require: true,
-//       rejectUnauthorized: false,  // Allow self-signed SSL certificates if needed
-//     },
-//   },
+//   // dialectOptions: {
+//   //   ssl: process.env.INTERNAL_DB_URL
+//   //     // ? {
+//   //     //     // require: true,
+//   //     //     rejectUnauthorized: false,
+//   //     //   }
+//   //     // : false, // Disable SSL if no connection string
+//   // },
 // });
 
