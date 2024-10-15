@@ -83,7 +83,7 @@ const BookList: React.FC = () => {
     async (pageNumber: number) => {
       setLoading(true);
       try {
-        const response = await client.get(`/api/books?limit=15&page=${pageNumber}`);
+        const response = await client.get(`/api/books?limit=35&page=${pageNumber}`);
         const newBooks = response.data;
         if (newBooks.length === 0) {
           setHasMore(false); // No more books to load
