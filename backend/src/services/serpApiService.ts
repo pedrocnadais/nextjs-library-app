@@ -23,7 +23,7 @@ export async function scrapeBookData(title: string, author: string) {
   const params = {
     api_key: process.env.SERPAPI_KEY,
     engine: "google",
-    q: `${title} ${author} book and audible`,
+    q: `${title} ${author} books and audiobooks:amazon.com.br`,
     google_domain: "google.com",
     // hl: "en",
     // gl: "us",

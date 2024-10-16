@@ -1,43 +1,55 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { client } from "@/utils/axios.config";
 
 const NewBooks: React.FC = () => {
-  const [title, setTitle] = useState<string>('');
-  const [author, setAuthor] = useState<string>('');
-  const [listBooks, setListBooks] = useState<{ title: string; author: string }[]>([]);
+  const [title, setTitle] = useState<string>("");
+  const [author, setAuthor] = useState<string>("");
+  const [listBooks, setListBooks] = useState<
+    { title: string; author: string }[]
+  >([]);
 
-  const saveToLocalStorage = (bookSuggestions: { title: string; author: string }[]) => {
-    localStorage.setItem('bookSuggestions', JSON.stringify(bookSuggestions));
+  const saveToLocalStorage = (
+    bookSuggestions: { title: string; author: string }[]
+  ) => {
+    localStorage.setItem("bookSuggestions", JSON.stringify(bookSuggestions));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (title && author) {
       try {
-        const response = await client.post('/api/suggestion', {
+        const response = await client.post("/api/suggestion", {
           title: title,
           author: author,
         });
-        console.log('Book added successfully:', response.data);
+        console.log("Book added successfully:", response.data);
         setListBooks((prevListBooks) => [...prevListBooks, response.data]);
         saveToLocalStorage([...listBooks, response.data]);
-        setAuthor('');
-        setTitle('');
+        setAuthor("");
+        setTitle("");
       } catch (error) {
-        console.error('Error adding book:', error);
+        console.error("Error adding book:", error);
       }
     }
   };
 
   return (
     <>
-      <h2 className="text-2xl font-bold mb-4 text-center ">Book Suggestions</h2>
       <article>
-        <form className="space-y-4 bg-gray-100 p-4 rounded-lg shadow-md" onSubmit={handleSubmit}>
+        <form
+          className="space-y-4 bg-gray-100 p-4 rounded-lg shadow-md"
+          onSubmit={handleSubmit}
+        >
+          <h2 className="text-2xl font-bold mb-4 text-center ">
+            Book Suggestions
+          </h2>
           <div className="form-control">
-            <label htmlFor="bookName" className="block mb-2 text-sm font-medium text-gray-900">
+            <label
+              htmlFor="bookName"
+              className="block mb-2 text-sm font-medium text-gray-900"
+            >
               Book Title:
             </label>
             <input
@@ -51,7 +63,10 @@ const NewBooks: React.FC = () => {
             />
           </div>
           <div className="form-control">
-            <label htmlFor="bookAuthor" className="block mb-2 text-sm font-medium text-gray-900">
+            <label
+              htmlFor="bookAuthor"
+              className="block mb-2 text-sm font-medium text-gray-900"
+            >
               Author:
             </label>
             <input
