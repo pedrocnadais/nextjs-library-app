@@ -16,7 +16,7 @@ const MainBook = () => {
   return (
     <div className=" flex flex-col items-center overflow-y-auto">
       <div
-        className={`relative bg-[#d4d5d6] rounded-lg shadow-lg px-[6px] w-[300px] h-auto transition-transform duration-200 ${
+        className={`relative bg-[#fdfdfd] rounded-lg shadow-lg px-[6px] w-[300px] h-auto transition-transform duration-200 ${
           slideDirection === "right"
             ? "-translate-x-full"
             : slideDirection === "left"
@@ -34,7 +34,7 @@ const MainBook = () => {
             alt={currentBook.title}
             height={200}
             width={200}
-            className="object-cover mt-4 mx-auto cursor-pointer"
+            className="object-cover mt-4 mx-auto cursor-pointer border-2 border-black"
             priority
             onClick={() => openLink(currentBook.written)}
           />

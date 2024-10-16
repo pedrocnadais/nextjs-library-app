@@ -11,7 +11,7 @@ const SelectReorder: React.FC<SelectReorderProps> = ({ setSortBy, sortBy }) => {
   return (
     <>
       <select
-        className="border rounded-lg bg-gray-200 p-1 shadow-sm"
+        className="border rounded-lg bg-[#fdfdfd] p-1 shadow-sm"
         value={sortBy}
         onChange={(e) => setSortBy(e.target.value)}
       >

@@ -9,6 +9,7 @@ const Footer = () => {
         Como participante do Programa de Associados da Amazon, sou remunerado
         pelas compras qualificadas efetuadas
       </div>
+      <p className='text-center hover:text-gray-500'>Designed by <a href='https://github.com/pedrocnadais' target='_blank'>Pedro Corsi</a></p>
     </div>
   );
 };
