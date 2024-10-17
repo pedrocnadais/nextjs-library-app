@@ -23,9 +23,9 @@ const Book: React.FC<BookTypeProps> = ({ bookType, onClick }) => {
         className="object-contain object-top h-52 w-52"
       />
 
-      <h1 className="sm:text-xl text-sm sm:mt-2 font-bold cursor-pointer" onClick={onClick}>{bookType.title}</h1>
+      <h1 className="sm:text-xl text-sm sm:mt-2 text-[#313131] font-bold cursor-pointer" onClick={onClick}>{bookType.title}</h1>
 
-      <h3 className="text-xs text-gray-500 sm:mt-2">{bookType.author}</h3>
+      <h3 className="sm:text-lg text-xs text-[#646464] sm:mt-2">{bookType.author}</h3>
 
     </div>
   );

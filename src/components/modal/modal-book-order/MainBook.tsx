@@ -40,11 +40,11 @@ const MainBook = () => {
           />
         </div>
 
-        <h1 className="sm:text-xl text-md font-bold text-center mt-3 cursor-pointer">
+        <h1 className="sm:text-xl text-md text-[#313131] font-bold text-center mt-3 cursor-pointer">
           {currentBook.title}
         </h1>
 
-        <h4 className="text-gray-600 text-center text-sm sm:text-md">{currentBook.author}</h4>
+        <h4 className="text-[#646464] text-center text-sm sm:text-md">{currentBook.author}</h4>
 
         <div className="mt-4 mb-5 flex flex-row gap-2 sm:gap-5 justify-center items-center">
           <button
