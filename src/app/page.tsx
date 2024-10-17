@@ -6,7 +6,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="bg-[#dfecee] mb-3">
+    <div className="bg-[#dfecee]">
       <Logo />
       <SuggestionContainer />
       <BookList />

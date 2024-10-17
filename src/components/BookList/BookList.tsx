@@ -44,7 +44,7 @@ const BookListContent: React.FC<{
       <Toaster position="bottom-center" reverseOrder={false} />
 
       <section>
-        <div className="mb-4">
+        <div className="ml-6 mb-4">
           <SelectReorder sortBy={sortBy} setSortBy={setSortBy} />
         </div>
 
