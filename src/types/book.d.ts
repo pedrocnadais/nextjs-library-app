@@ -1,6 +1,6 @@
 
 export interface BookType {
- id: string;
+ id: number;
  img: string;
  title: string;
  author: string;
