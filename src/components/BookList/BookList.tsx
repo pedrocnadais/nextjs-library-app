@@ -37,6 +37,10 @@ const BookListContent: React.FC<{
     sortedBooks.sort((a, b) => b.author.localeCompare(a.author));
   } else if (sortBy === "inverted-title") {
     sortedBooks.sort((a, b) => b.title.localeCompare(a.author));
+  } else if (sortBy === "newest") {
+    sortedBooks.sort((a, b) => b.id - a.id)
+  } else if (sortBy === "oldest") {
+    sortedBooks.sort((a, b) => a.id - b.id)
   }
 
   return (

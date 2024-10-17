@@ -90,10 +90,10 @@ const BookModal = ({  }) => {
 
     >
       {/* previous books */}
-      <button onClick={handlePrevious} className="absolute mr-[90%] z-10 hover:opacity-45">
-        <FaAnglesLeft size={80} />
+      <button onClick={handlePrevious} className="hidden lg:block absolute mr-[90%] hover:opacity-45">
+        <FaAnglesLeft size={60} />
       </button>
-      <div className="hidden sm:block">
+      <div className="hidden lg:block">
       <PreviousBook />
       </div>
 
@@ -101,10 +101,10 @@ const BookModal = ({  }) => {
       <MainBook />
 
       {/* next book */}
-      <button onClick={handleNext} className="absolute ml-[90%] hover:opacity-45">
-        <FaAnglesRight size={80} />
+      <button onClick={handleNext} className="hidden lg:block absolute ml-[90%] hover:opacity-45">
+        <FaAnglesRight size={60} />
       </button>
-      <div className="hidden sm:block">
+      <div className="hidden lg:block">
       <NextBook />
       </div>
     </div>

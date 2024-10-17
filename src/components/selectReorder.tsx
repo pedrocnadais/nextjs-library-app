@@ -18,6 +18,12 @@ const SelectReorder: React.FC<SelectReorderProps> = ({ setSortBy, sortBy }) => {
         <option key="reorder" value="">
           Reorder
         </option>
+        <option key="newest" value="newest">
+          Newest books
+        </option>
+        <option key="oldest" value="oldest">
+          Oldest books
+        </option>
         <option key="author" value="author">
           Author (a-z)
         </option>
