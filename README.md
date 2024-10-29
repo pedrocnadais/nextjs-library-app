@@ -1,7 +1,3 @@
-Yes, creating a `README.md` file in the project folder is highly recommended. This file serves as the primary entry point for anyone interacting with your project, including collaborators and users. It should provide an overview, setup instructions, and key usage information about the app.
-
-Here's a template based on the documentation we prepared:
-
 ```markdown
 # Next.js Library App
 
