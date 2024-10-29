@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Yes, creating a `README.md` file in the project folder is highly recommended. This file serves as the primary entry point for anyone interacting with your project, including collaborators and users. It should provide an overview, setup instructions, and key usage information about the app.
 
-## Getting Started
+Here's a template based on the documentation we prepared:
 
-First, run the development server:
+```markdown
+# Next.js Library App
 
+## Overview
+The Next.js Library App is a platform that displays a collection of books with features like sorting, pagination, and search. It supports swipe and keyboard-based navigation for ease of use on both mobile and desktop.
+
+## Table of Contents
+1. [Features](#features)
+2. [Setup](#setup)
+3. [Environment Variables](#environment-variables)
+4. [Usage](#usage)
+5. [Deployment](#deployment)
+6. [Testing](#testing)
+
+## Features
+- Book display with sorting and pagination
+- Modal view with swipe and keyboard navigation
+- Responsive design for mobile and desktop
+- Integrated backend using PostgreSQL for book data storage
+
+## Setup
+
+### 1. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/pedrocnadais/nextjs-library-app.git
+cd nextjs-library-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Start the Development Server
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Build for Production
+```bash
+npm run build
+```
 
-## Learn More
+## Environment Variables
+Ensure you have `.env` files in the main and backend directories. Below are the variables you need to define:
 
-To learn more about Next.js, take a look at the following resources:
+### Main `.env`
+```plaintext
+NEXT_PUBLIC_API_URL=https://your-api-url.com
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Backend `.env`
+```plaintext
+DB_NAME=yourDatabaseName
+DB_USER=yourUsername
+DB_PASSWORD=yourPassword
+DB_HOST=yourDatabaseHost
+DB_PORT=yourDatabasePort
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Usage
+1. **Sorting and Filtering**: Sort books by title, author, and addition date.
+2. **Navigation**: Use keyboard arrows or swipe on mobile to navigate between books in the modal.
+3. **Responsive Design**: Adjusts layout based on screen size, optimized for both web and mobile.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Backend (Render)
+1. Create a new web service on Render, link the Git repository, and set the environment variables.
+2. Deploy and ensure the backend is live.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Frontend (Vercel)
+1. Deploy the frontend on Vercel, connect the Git repository, and set `NEXT_PUBLIC_API_URL` to your backend URL.
+2. Confirm deployment.
+
+## Testing
+- **Unit Tests**: Use Jest and React Testing Library for component tests.
+- **Integration Tests**: End-to-end tests with Cypress for workflows like pagination and sorting.
+
+## License
+This project is licensed under the MIT License.
+```
+
+This `README.md` provides a clear guide and is helpful to others viewing, testing, or contributing to the project. Place it in the root directory of your project folder.
