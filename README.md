@@ -4,14 +4,6 @@
 ## Overview
 The Next.js Library App is a platform that displays a collection of books with features like sorting, pagination, and search. It supports swipe and keyboard-based navigation for ease of use on both mobile and desktop.
 
-## Table of Contents
-1. [Features](#features)
-2. [Setup](#setup)
-3. [Environment Variables](#environment-variables)
-4. [Usage](#usage)
-5. [Deployment](#deployment)
-6. [Testing](#testing)
-
 ## Features
 - Book display with sorting and pagination
 - Modal view with swipe and keyboard navigation
@@ -20,24 +12,17 @@ The Next.js Library App is a platform that displays a collection of books with f
 
 ## Setup
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/pedrocnadais/nextjs-library-app.git
-cd nextjs-library-app
-```
-
-### 2. Install Dependencies
+### 1. Install Dependencies
 ```bash
 npm install
 ```
 
-### 3. Start the Development Server
+### 2. Start the Development Server
 ```bash
 npm run dev
 ```
 
-### 4. Build for Production
+### 3. Build for Production
 ```bash
 npm run build
 ```
