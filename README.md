@@ -9,20 +9,27 @@ The Next.js Library App is a platform that displays a collection of books with f
 - Modal view with swipe and keyboard navigation
 - Responsive design for mobile and desktop
 - Integrated backend using PostgreSQL for book data storage
+```
 
 ## Setup
 
-### 1. Install Dependencies
+### 1. Clone the Repository
+```bash
+git clone https://github.com/pedrocnadais/nextjs-library-app.git
+cd nextjs-library-app
+```
+
+### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-### 2. Start the Development Server
+### 3. Start the Development Server
 ```bash
 npm run dev
 ```
 
-### 3. Build for Production
+### 4. Build for Production
 ```bash
 npm run build
 ```
