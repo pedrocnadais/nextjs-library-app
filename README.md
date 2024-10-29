@@ -21,6 +21,7 @@ The Next.js Library App is a platform that displays a collection of books with f
 ## Setup
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/pedrocnadais/nextjs-library-app.git
 cd nextjs-library-app
@@ -80,5 +81,3 @@ DB_PORT=yourDatabasePort
 ## License
 This project is licensed under the MIT License.
 ```
-
-This `README.md` provides a clear guide and is helpful to others viewing, testing, or contributing to the project. Place it in the root directory of your project folder.
