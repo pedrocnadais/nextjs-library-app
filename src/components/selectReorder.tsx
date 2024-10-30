@@ -9,7 +9,8 @@ interface SelectReorderProps {
 
 const SelectReorder: React.FC<SelectReorderProps> = ({ setSortBy, sortBy }) => {
   return (
-    <>
+    <label>
+      Sort books by:
       <select
         className="border rounded-lg bg-[#fdfdfd] p-1 shadow-sm"
         value={sortBy}
@@ -37,7 +38,7 @@ const SelectReorder: React.FC<SelectReorderProps> = ({ setSortBy, sortBy }) => {
           Title (z-a)
         </option>
       </select>
-    </>
+    </label>
   );
 };
 
