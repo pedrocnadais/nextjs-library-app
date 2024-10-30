@@ -81,7 +81,7 @@ const NewBooks: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
+            className="px-4 py-2 bg-[#7d95b4] text-white rounded-lg hover:bg-[#6481a7]"
           >
             Add book to the list
           </button>
